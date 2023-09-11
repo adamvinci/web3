@@ -3,9 +3,16 @@ return (
   <h1>{props.name}</h1>
 )
 }
+const Part = (props)=>{
+  console.log(props)
+  return(
+
+  <p>{props.props.part} {props.props.exercice}</p>
+  )
+}
 const Content = (props)=> {
 return(
-  <p>{props.part} {props.exercice}</p>
+  <Part props={props}/>
 )
 }
 const Total = (props)=> {
