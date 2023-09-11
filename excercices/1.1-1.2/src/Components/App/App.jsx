@@ -1,25 +1,8 @@
-const Header = (props)=>{
-return (
-  <h1>{props.name}</h1>
-)
-}
-const Part = (props)=>{
-  console.log(props)
-  return(
+import Header from "../Header/Header"
+import Content from "../Content/Content"
+import Total from "../Total/Total"
 
-  <p>{props.props.part} {props.props.exercice}</p>
-  )
-}
-const Content = (props)=> {
-return(
-  <Part props={props}/>
-)
-}
-const Total = (props)=> {
-  return(
-    <p>Number of exercises {props.cmpt}</p>
-  )
-}
+
 const App = () => {
   const course = 'Half Stack application development'
   const part1 = 'Fundamentals of React'
