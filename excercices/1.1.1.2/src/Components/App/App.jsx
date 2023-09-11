@@ -1,6 +1,7 @@
 import Header from "../Header/Header"
 import Content from "../Content/Content"
 import Total from "../Total/Total"
+import "./App.css"
 
 
 const App = () => {
@@ -15,9 +16,13 @@ const App = () => {
   return (
     <div>
       <Header name = {course} />
+      <div id ="content">
+
+ 
       <Content part={part1} exercice = {exercises1} />
       <Content part={part2} exercice = {exercises2} />
       <Content part={part3} exercice = {exercises3} />
+      </div>
       <Total cmpt={exercises1 + exercises2 + exercises3}/>
 
     </div>
