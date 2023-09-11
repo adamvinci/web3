@@ -1,4 +1,5 @@
-import Part from "../Part/Part"
+import Part from "../Part/Part";
+
 
 const Content = (props)=> {
     return(
