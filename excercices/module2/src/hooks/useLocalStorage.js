@@ -1,8 +1,8 @@
 import { useState } from 'react';
-const COUNTER_KEY = "counter"
+
 
 function useLocalStorage(key, initialValue){
-    let cmpt = JSON.parse(localStorage.getItem(COUNTER_KEY))
+    let cmpt = JSON.parse(localStorage.getItem(key))
     if(!cmpt){
         cmpt =initialValue;
     }
@@ -10,7 +10,7 @@ function useLocalStorage(key, initialValue){
     const [ stateValue, stateSetter ] = useState(cmpt);
 
   const persistentSetter = (newvalue) => {
-    localStorage.setItem(COUNTER_KEY, JSON.stringify(newvalue))
+    localStorage.setItem(key, JSON.stringify(newvalue))
     stateSetter(newvalue);
   } 
   

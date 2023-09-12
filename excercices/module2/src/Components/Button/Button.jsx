@@ -1,6 +1,6 @@
 const Button = ({changeCount,text,delta})=>{
   
-    return <button onClick={()=>changeCount(delta)} data-delta={delta}>
+    return <button onClick={()=>changeCount(delta)} >
     {text}
   </button>
 }
