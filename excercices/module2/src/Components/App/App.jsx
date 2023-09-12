@@ -4,16 +4,18 @@ import Button from '../Button/Button'
 
 const App = () => {
     const [ counter, setCounter ] = useState(0)
-  
-    const setToZero = () => setCounter(0)
+    const changeCount = (delta) => {
+        setCounter(counter + delta)
+      }  
+
   
     return (
       <div id="cmp">
   
         <Display counter={counter}/>
-        <Button handleClick = {()=>setCounter(counter + 1)} text = 'plus'/>
-        <Button handleClick = {setToZero} text = 'zero'/>
-        <Button handleClick = {()=>setCounter(counter - 1)} text = 'moins'/>
+        <Button delta={+1} changeCount={changeCount} text = 'plus'/>
+        <Button delta={-counter} changeCount={changeCount} text = 'zero'/>
+        <Button delta={-1} changeCount={changeCount} text = 'moins'/>
         
       </div>
     )
