@@ -1,0 +1,10 @@
+body{
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+    height: 100vh;
+
+}
+#cmp{
+   text-align: center;
+}
