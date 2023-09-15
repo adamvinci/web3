@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import nameService from '../../services/person.js'
 const CreatePerson = ({ personnes, setPersonne }) => {
     console.log(setPersonne)
 
@@ -13,14 +14,33 @@ const CreatePerson = ({ personnes, setPersonne }) => {
 
     const addPersonne = (event) => {
         event.preventDefault()
-        const noteObject = {
-            id: personnes.length + 1,
-            content: newName,
-            number: newNumber
-        }
-        setPersonne(personnes.concat(noteObject))
-        setNewName('')
-        setNewNumber('')
+        const personne = personnes.find(n => n.content === newName)
+        if(personne){
+            alert(`User ${newName} already exist remplace the number ?`)    
+            const changedPersonne = { ...personne, number: newNumber }
+        
+            nameService
+              .update(personne.id, changedPersonne)
+              .then(response => {
+                console.log(response)
+                setPersonne(personnes.map((p) => p.id !== personne.id ? p : response.data))
+              })
+          }else{
+            const noteObject = {
+                id: personnes.length + 1,
+                content: newName,
+                number: newNumber
+            }
+            nameService.create(noteObject).then(response =>{
+                console.log(response)
+                setPersonne(personnes.concat(response.data))
+            })
+    
+            setNewName('')
+            setNewNumber('')         
+          }
+        
+   
     }
 
     return (

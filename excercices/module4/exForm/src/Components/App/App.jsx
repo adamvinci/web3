@@ -1,14 +1,14 @@
 import DisplayPersonne from "../DisplayPerson/DisplayPerson"
 import CreatePerson from "../CreatePerson/CreatePerson"
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import nameService from '../../services/person.js'
+
 const App = () => {
   const [personnes, setPersonne] = useState([])
   const [filter, setFilter] = useState('')
 
   const hook = () => {
-    axios
-      .get('http://localhost:3001/names')
+ nameService.getAll()
       .then(response => {
         setPersonne(response.data)
       })
@@ -16,10 +16,19 @@ const App = () => {
 
   useEffect(hook, [])
 
+  const removePerson =({id,content})=>{
+    alert(`Delete ${content}`)
+    nameService.deletePerson(id).then(response=>{
+      setPersonne(personnes.filter((p)=>p.id!==id))
+    })
+} 
   const filterHandler = (event) => {
     setFilter(event.target.value)
   }
+
   const filteredPerson = personnes.filter((p) => p.content.toLowerCase().includes(filter.toLowerCase()))
+
+  
   return (
     <div>
       <h1>Filter</h1>
@@ -27,7 +36,7 @@ const App = () => {
       <h1>add new</h1>
       <ul>
         {filteredPerson.map(personne =>
-          <DisplayPersonne personne={personne} />
+          <DisplayPersonne removePerson={removePerson }personne={personne} />
         )}
       </ul>
 
