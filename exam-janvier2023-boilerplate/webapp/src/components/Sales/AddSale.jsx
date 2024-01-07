@@ -12,7 +12,7 @@ const AddSale = ({ game }) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         const date = datePicker.length !== 0 ? datePicker : new Date().toISOString()
-        const newSale = { buyer, quantity, game }
+        const newSale = { buyer, quantity, game, date }
         console.log(newSale)
         addSale(newSale)
         setBuyer('')
