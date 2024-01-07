@@ -1,0 +1,32 @@
+@hostname = localhost
+@port = 3001
+@host = http://{{hostname}}:{{port}}
+
+#63c9874cf0a083b9dbf04ec3 victor id
+###
+
+POST {{host}}/api/events HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "date": "2021-02-27T15:38:33.177+00:00",
+  "child": "63c995019535bd26bcfd1ba9",
+  "name": "pipi"
+}
+### GET ALL
+GET {{host}}/api/events HTTP/1.1
+Accept: application/json
+
+### GET ALL BY CHILD
+GET {{host}}/api/events/child/63c9951a9535bd26bcfd1badHTTP/1.1
+
+
+### get one by id
+GET {{host}}/api/events/63c98ec5d987b6eef5b7685e HTTP/1.1
+
+### DELETE ONE 
+
+DELETE {{host}}/api/events/63c9b5991f91fd2359905d15 HTTP/1.1
+
+

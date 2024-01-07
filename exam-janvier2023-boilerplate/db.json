@@ -1,0 +1,42 @@
+{
+    "games": [
+        {
+            "name": "Pandemic",
+            "price": 25.5,
+            "stock": 5
+        },
+        {
+            "name": "Scythe",
+            "price": 53,
+            "stock": 2
+        },
+        {
+            "name": "Teera Mstica",
+            "price": 45.89,
+            "stock": 7
+        }
+    ],
+    "sales": [
+        {
+            "buyer": "Camille",
+            "date": "2021-01-02T10:17:35.457+00:00",
+            "quantity": 1,
+            "total": 25.5,
+            "game": "METTEZ ICI L'ID DE Pandemic"
+        },
+        {
+            "buyer": "Laurent",
+            "date": "2022-01-02T13:26:15.457+00:00",
+            "quantity": 1,
+            "total": 25.5,
+            "game": "METTEZ ICI L'ID DE Scythe"
+        },
+        {
+            "buyer": "Laurent",
+            "date": "2023-01-02T15:49:27.457+00:00",
+            "quantity": 1,
+            "total": 25.5,
+            "game": "METTEZ ICI L'ID DE Terra Mystica"
+        }
+    ]
+}

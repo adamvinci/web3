@@ -1,0 +1,30 @@
+### GET ALL event
+GET http://localhost:3333/api/events
+
+### GET one event (Fin de la sieste)
+GET http://localhost:3333/api/events/659921c25dccf7ae64def28e
+
+### Add one event to segolene
+POST  http://localhost:3333/api/events
+Content-Type: application/json
+
+{
+    "name":"event1",
+    "date": "2021-03-17T10:27:15.187+00:00",
+    "child": "659921040b05e567642068ed"
+}
+
+
+### DELETE ONE event
+DELETE http://localhost:3333/api/events/659926723af472d8250d3483
+
+### Add one event to non existing child
+POST  http://localhost:3333/api/events
+Content-Type: application/json
+
+{
+    "name":"event1",
+    "date": "2021-03-17T10:27:15.187+00:00",
+    "child": "659921040b05e557642068ed"
+}
+

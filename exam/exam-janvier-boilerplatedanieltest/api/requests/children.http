@@ -1,0 +1,26 @@
+@hostname = localhost
+@port = 3001
+@host = http://{{hostname}}:{{port}}
+
+#63c98ccf23400173d1d08725 victor id
+###
+
+POST {{host}}/api/children HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Elias",
+  "birthDate": "2021-02-27T15:38:33.177+00:00",
+  "gender": "M"
+}
+### GET ALL
+GET {{host}}/api/children HTTP/1.1
+Accept: application/json
+
+### get one by id
+GET {{host}}/api/children/63c9874cf0a083b9dbf04ec3 HTTP/1.1
+
+### DELETE ONE 
+
+DELETE {{host}}/api/children/63c9874cf0a083b9dbf04ec3 HTTP/1.1

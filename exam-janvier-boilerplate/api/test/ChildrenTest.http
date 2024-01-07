@@ -1,0 +1,38 @@
+
+### GET ALL children
+GET http://localhost:3333/api/children
+
+### GET one children (Ségolène)
+GET http://localhost:3333/api/children/659921040b05e567642068ed
+
+### Add one children
+POST  http://localhost:3333/api/children
+Content-Type: application/json
+
+{
+    "name":"jean",
+    "birthDate": "2021-03-17T10:27:15.187+00:00",
+    "gender": "F"
+}
+
+### DELETE ONE CHILDREN
+DELETE  http://localhost:3333/api/children/659920dcc56823e3a5f8a87c
+
+### Add one children with name <3
+POST  http://localhost:3333/api/children
+Content-Type: application/json
+
+{
+    "name":"x",
+    "birthDate": "2021-03-17T10:27:15.187+00:00",
+    "gender": "F"
+}
+### Add one children with gender !== M && F
+POST  http://localhost:3333/api/children
+Content-Type: application/json
+
+{
+    "name":"jean",
+    "birthDate": "2021-03-17T10:27:15.187+00:00",
+    "gender": "z"
+}

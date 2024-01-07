@@ -1,0 +1,50 @@
+### Get all sales
+GET http://localhost:3001/api/sales
+
+### Get Camille sale
+GET http://localhost:3001/api/sales/659a6c009a643074748c5660
+
+
+### Create one sales on pandemic game
+POST  http://localhost:3001/api/sales
+Content-Type:  application/json
+
+{
+    "buyer":"jean",
+    "quantity":1,
+    "game":"659a6ae00e01e2b61043f9ef",
+    "date":"2023-01-02T10:17:35.457+00:00"
+}
+
+### Delete one
+DELETE  http://localhost:3001/api/sales/659a71df581e43b09d2342bb
+
+### Create one sales on game with no suficient stock
+POST  http://localhost:3001/api/sales
+Content-Type:  application/json
+
+{
+    "buyer":"jean",
+    "quantity":3,
+    "game":"659a6b1febfa5c6b7ac589db",
+    "date":"2023-01-02T10:17:35.457+00:00"
+}
+
+### Create one with missing params
+POST  http://localhost:3001/api/sales
+Content-Type:  application/json
+
+{
+
+}
+
+### Create one sales with negative quantity
+POST  http://localhost:3001/api/sales
+Content-Type:  application/json
+
+{
+    "buyer":"jean",
+    "quantity":-5,
+    "game":"659a6b1febfa5c6b7ac589db",
+    "date":"2023-01-02T10:17:35.457+00:00"
+}

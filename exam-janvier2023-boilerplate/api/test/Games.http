@@ -1,0 +1,47 @@
+
+### Get all games
+GET http://localhost:3001/api/games
+
+### Get scythe game
+GET http://localhost:3001/api/games/659a6b1febfa5c6b7ac589db
+
+### Create one game
+POST  http://localhost:3001/api/games
+Content-Type:  application/json
+
+{
+    "name":"game1",
+    "price":5,
+    "stock":10
+}
+
+### DELETE one
+DELETE http://localhost:3001/api/games/659a6ea0ee4c37cf4e9c3fd4
+
+### Create one with missing params
+POST  http://localhost:3001/api/games
+Content-Type:  application/json
+
+{
+
+}
+
+### Create one with negative price and stock
+POST  http://localhost:3001/api/games
+Content-Type:  application/json
+
+{
+    "name":"game1",
+    "price":-5,
+    "stock":-10
+}
+
+### Create one with null stock
+POST  http://localhost:3001/api/games
+Content-Type:  application/json
+
+{
+    "name":"game1",
+    "price":5
+
+}
