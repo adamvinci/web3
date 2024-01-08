@@ -1,0 +1,41 @@
+### GET ALL scores
+GET http://localhost:3001/api/scores
+
+### CREATE one joke with already given score
+POST http://localhost:3001/api/scores
+Content-Type: application/json
+
+{
+    "username": "jean",
+      "date": "2021-01-02T10:17:35.457+00:00",
+      "score": 10,
+      "joke": "6461f476d9a9da9dbeade34e"
+}
+
+### CREATE one joke with already given score
+POST http://localhost:3001/api/scores
+Content-Type: application/json
+
+{
+    "username": "camille",
+      "date": "2021-01-02T10:17:35.457+00:00",
+      "score": 10,
+      "joke": "6461f476d9a9da9dbeade34e"
+}
+### CREATE one joke with missing params
+POST http://localhost:3001/api/scores
+Content-Type: application/json
+
+{
+
+}
+### CREATE one joke with username < 3
+POST http://localhost:3001/api/scores
+Content-Type: application/json
+
+{
+    "username": "je",
+      "date": "2021-01-02T10:17:35.457+00:00",
+      "score": 10,
+      "joke": "6461f476d9a9da9dbeade34e"
+}

@@ -1,0 +1,37 @@
+### GET ALL joke
+GET http://localhost:3001/api/jokes
+
+### GET one joke
+GET http://localhost:3001/api/jokes/6461f476d9a9da9dbeade34e
+
+### DELETE one joke
+DELETE  http://localhost:3001/api/jokes/6461f476d9a9da9dbeade34e
+
+### CREATE one joke
+POST http://localhost:3001/api/jokes
+Content-Type: application/json
+
+{
+      "question": "joke1",
+      "answer": "joke1",
+      "category": "kjjj"
+}
+
+### CREATE one with missing params
+POST http://localhost:3001/api/jokes
+Content-Type: application/json
+
+{
+
+}
+
+### CREATE one with short params
+POST http://localhost:3001/api/jokes
+Content-Type: application/json
+
+{
+          "question": "joke1",
+      "answer": "j",
+      "category": "k"
+
+}
