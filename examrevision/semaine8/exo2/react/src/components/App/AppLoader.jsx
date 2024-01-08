@@ -4,6 +4,10 @@ import {
     ApolloProvider,
     InMemoryCache,
 } from '@apollo/client'
+import { ProviderWrapper as DataProvider } from '../contexts/dataContext';
+import { BrowserRouter as Router } from 'react-router-dom';
+
+
 
 const client = new ApolloClient({
     uri: 'http://localhost:4000',
@@ -14,7 +18,9 @@ const client = new ApolloClient({
 const AppLoader = () => {
     return (
         <ApolloProvider client={client}>
-            <App />
+            <DataProvider>
+                <Router> <App /> </Router>
+            </DataProvider>
         </ApolloProvider>
     );
 };

@@ -1,6 +1,12 @@
 import { useState } from "react";
-
-const OneAuthor = ({ author, handleSubmit }) => {
+import { Context as DataContext } from '../contexts/dataContext.jsx';
+import { useContext } from 'react'
+const OneAuthor = ({ author }) => {
+    const { updateBirthYear } = useContext(DataContext)
+    const handleSubmit = (name, yearString) => {
+        const year = parseInt(yearString, 10);
+        updateBirthYear({ variables: { name, year } })
+    }
     const [born, setBorn] = useState('')
     return (
         <div>

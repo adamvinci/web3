@@ -1,10 +1,12 @@
 import { useState } from "react"
-import { ALL_BOOK, ADD_BOOK, ALL_AUTHOR } from '../../querie.js'
-import { useMutation } from '@apollo/client'
-const AddBook = ({ setError }) => {
+
+import { Context as DataContext } from '../contexts/dataContext.jsx';
+import { useContext } from 'react'
+const AddBook = () => {
+    const { addBook } = useContext(DataContext)
     const [title, setTitle] = useState('')
     const [author, setAuthor] = useState('')
-    const [published, setPublished] = useState(0)
+    const [published, setPublished] = useState('')
     const [genres, setGenres] = useState([])
     const [genre, setGenre] = useState('')
     const addGenre = () => {
@@ -12,12 +14,7 @@ const AddBook = ({ setError }) => {
         setGenre('')
     }
 
-    const [addBook] = useMutation(ADD_BOOK, {
-        refetchQueries: [{ query: ALL_BOOK }, { query: ALL_AUTHOR }], onError: (error) => {
-            const messages = error.graphQLErrors.map(e => e.message).join('\n')
-            setError(messages)
-        }
-    })
+
 
     const handlerSubmit = (e) => {
         e.preventDefault()
@@ -25,7 +22,7 @@ const AddBook = ({ setError }) => {
         setTitle('');
         setAuthor('');
         setGenre('')
-        setPublished(0);
+        setPublished('');
         setGenres([])
     }
     return (
@@ -36,7 +33,7 @@ const AddBook = ({ setError }) => {
             </div>
             <div>
                 <label>author</label><input required type="text" value={author} onChange={e => setAuthor(e.target.value)} /> </div>
-            <div> <input required type="number" value={published} onChange={e => setPublished(e.target.value)} /> </div>
+            <div> <input required type="number" value={published} onChange={e => setPublished(parseInt(e.target.value))} /> </div>
             <input type="text" value={genre} onChange={e => setGenre(e.target.value)} />
             <div>  <button type="button" onClick={addGenre}>Add genre</button></div>
             <div>genres: {genres.join(' ')}</div>

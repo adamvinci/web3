@@ -1,27 +1,19 @@
-import { useQuery, useMutation } from '@apollo/client'
-import { ALL_AUTHOR, ADD_AUTHOR } from '../../querie.js'
-import OneAuthor from './OneAuthor.jsx'
-const Author = ({ setError }) => {
-    const result = useQuery(ALL_AUTHOR)
-    const [updateBirthYear] = useMutation(ADD_AUTHOR, {
-        onError: (error) => {
-            const messages = error.graphQLErrors.map(e => e.message).join('\n')
-            setError(messages)
-        }
-    })
-    const handleSubmit = (name, yearString) => {
-        const year = parseInt(yearString, 10);
-        updateBirthYear({ variables: { name, year } })
-    }
-    if (result.loading) {
+import { Context as DataContext } from '../contexts/dataContext.jsx';
+import { useContext } from 'react'
+import { Link } from 'react-router-dom';
+
+const Author = () => {
+    const { authors } = useContext(DataContext)
+
+    if (authors.loading) {
         return (
             <div>Loading...</div>
         )
     }
     return (
         <div>
-            {result.data.allAuthors.map((author) => <OneAuthor key={author.id} handleSubmit={handleSubmit} author={author} />)}
-            <p > <strong>There is {result.data.authorCount} authors </strong></p>
+            {authors.data.allAuthors.map((author) => <Link key={author.id} to={`/author/${author.id}`}><p>{author.name} </p></Link>)}
+            <p > <strong>There is {authors.data.authorCount} authors </strong></p>
         </div>
     )
 }
